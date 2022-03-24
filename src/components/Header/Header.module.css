@@ -1,0 +1,15 @@
+.page__header{
+    background-color: rgb(146, 146, 243);
+    grid-area: header;
+    border-radius: 5px;
+}
+.header__logo{
+    max-width: 100%;
+    height: auto;
+}
+.logo{
+    width: auto;
+    height: 60px;
+    margin-left: 5px;
+    margin-top: 5px;
+}

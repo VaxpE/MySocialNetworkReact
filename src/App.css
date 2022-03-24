@@ -1,0 +1,14 @@
+.App{
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: 70px 1fr;
+  grid-template-areas: 
+  "header header"
+  "navbar profile";
+  gap: 10px;
+  background-color: rgb(255, 255, 255);
+}
+.wrapper{
+  width: 1366px;
+  margin: 0 auto;
+}

@@ -1,0 +1,18 @@
+.page__navbar{
+    background-color: rgb(146, 146, 243);
+    grid-area: navbar;
+    border-radius: 5px;
+}
+.nav__list{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.Item{
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.Item a{
+   color: rgb(0, 0, 0);
+   font-family: Arial, Helvetica, sans-serif;
+}
