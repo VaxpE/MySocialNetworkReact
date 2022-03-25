@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
 .page__header{
     background-color: rgb(146, 146, 243);
     grid-area: header;
     border-radius: 5px;
+    display: flex;
 }
 .header__logo{
     max-width: 100%;
@@ -12,4 +14,10 @@
     height: 60px;
     margin-left: 5px;
     margin-top: 5px;
+}
+.header__text{
+    margin: auto auto;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: Rubik;
 }
