@@ -1,14 +1,19 @@
 .App{
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  grid-template-rows: 70px 1fr;
-  grid-template-areas: 
-  "header header"
-  "navbar profile";
-  gap: 10px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(237, 238, 240);
 }
 .wrapper{
   width: 1366px;
   margin: 0 auto;
+  font-family: 'M PLUS 1';
+
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  grid-template-rows: 70px 1fr;
+  grid-template-areas: 
+  "header header"
+  "navbar content";
+  gap: 10px;
+}
+.app_content{
+  grid-area: content;
 }
