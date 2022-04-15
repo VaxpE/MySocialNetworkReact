@@ -1,40 +1,36 @@
 import classes from './Dialogs.module.css';
+import DialogItem from './DialogItem/DialogItem';
+import MessageItem from './MessageItem/MessageItem';
+import React from 'react';
+import { sendMessageActionCreator, updateNewMessageText } from '../../redux/state';
+
 
 const Dialogs = (props) => {
+  
+    let dialogItems = props.dialog.dialogData.map( (el) => (<DialogItem name={el.name} id={el.id} />))
+
+    let messageItems =  props.dialog.messageData.map( (el) => ( <MessageItem message={el.message}/>))
+
+    let newMessage = React.createRef()
+    const SendMessage = () =>{
+        props.dispatch(sendMessageActionCreator());
+    }
+
+    let rewriteTextBox = () =>{
+    let newText = newMessage.current.value;
+    props.dispatch(updateNewMessageText(newText))
+  }
+  
     return (
         <div className={classes.content__dialogs}>
-            <div className={classes.dialog__items}>            
-                    <div className={classes.dialog_box}>
-                        <div className={classes.dialog}>
-                            Vlad
-                        </div>
-                    </div>
-                <div className={classes.dialog_box}>
-                    <div className={classes.dialog}>
-                        Kostya
-                    </div>
-                </div>
-                <div className={classes.dialog_box}>
-                    <div className={classes.dialog}>
-                        Eva
-                    </div>
-                </div>
-                <div className={classes.dialog_box}>
-                    <div className={classes.dialog}>
-                        Nastya
-                    </div>
-                </div>
-                <div className={classes.dialog_box}>
-                    <div className={classes.dialog}>
-                        Anya
-                    </div>
-                </div>
+            <div className={classes.dialog__items}>
+              {dialogItems}
             </div>
             <div className={classes.border}></div>
             <div className={classes.message_items}>
-                <div className={classes.message}>Hello</div>
-                <div className={classes.message}>How are you</div>
-                <div className={classes.message}>I'm fine</div>
+                {messageItems}
+                <textarea onChange = {rewriteTextBox} value ={props.dialog.newMessageText} ref={newMessage} ></textarea>
+                <button className ={classes.button} onClick={SendMessage}>Отправить</button>
             </div>
         </div>
     )

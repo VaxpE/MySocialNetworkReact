@@ -9,8 +9,7 @@ import Music from './components/Content/Music/Music';
 import News from './components/Content/News/News';
 import Settings from './components/Content/Settings/Settings';
 
-
-function App() {  
+function App(props) {
   return (
     <BrowserRouter>
       <div className="App">
@@ -19,14 +18,23 @@ function App() {
           <NavBar />
           <div className='app_content'>
             <Routes>
-              <Route path='/profile' element={<Profile />}></Route>
-              <Route path='/dialogs' element={<Dialogs />}></Route>
-              <Route path='/music' element={<Music />}></Route>
-              <Route path='/news' element={<News />}></Route>
-              <Route path='/settings' element={<Settings />}></Route>
+              <Route path='/profile/*'
+                element={<Profile
+                  profileData={props.state.profileData}
+                  dispatch = {props.dispatch}
+                  />}>
+              </Route>
+              <Route path='/dialogs/*'
+                element={<Dialogs
+                  dialog={props.state.dialog}
+                  dispatch = {props.dispatch} />}>
+              </Route>
+              <Route path='/music/*' element={<Music />}></Route>
+              <Route path='/news/*' element={<News />}></Route>
+              <Route path='/settings/*' element={<Settings />}></Route>
             </Routes>
           </div>
-        </div>  
+        </div>
       </div>
     </BrowserRouter>
   );
